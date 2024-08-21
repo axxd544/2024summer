@@ -9,9 +9,9 @@
         <relativePath/>
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>liu</artifactId>
+    <artifactId>yin</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>iMusic</name>
+    <name>Yin-music</name>
     <description>music-website project for Spring Boot</description>
 
     <properties>
@@ -109,6 +109,8 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>1.18.30</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- redis -->

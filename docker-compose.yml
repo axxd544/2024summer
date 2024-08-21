@@ -1,0 +1,50 @@
+version: '3.9'
+services:
+  music-manage:
+    build:
+      context: ./music-manage
+      dockerfile: Dockerfile
+    container_name: custom_music_manage # 自定义容器名称
+    ports:
+      - "81:81"
+    networks:
+      - music-net
+    environment:
+      - VUE_APP_API_URL=http://custom_music_server:8888 # 使用自定义的 server 容器名称
+  music-client:
+    build:
+      context: ./music-client
+      dockerfile: Dockerfile
+    container_name: custom_music_client # 自定义容器名称
+    ports:
+      - "80:80"
+    networks:
+      - music-net
+    environment:
+      - VUE_APP_API_URL=http://custom_music_server:8888 # 使用自定义的 server 容器名称
+  music-server:
+    build:
+      context: ./music-server
+      dockerfile: Dockerfile
+    container_name: custom_music_server # 自定义容器名称
+    ports:
+      - "8888:8888"
+    networks:
+      - music-net
+    depends_on:
+      - database # 这里改回定义的服务名称
+  database:
+    build:
+      context: ./database
+      dockerfile: Dockerfile
+    container_name: custom_database # 自定义容器名称
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: tp_music
+    ports:
+      - "3306:3306"
+    networks:
+      - music-net
+networks:
+  music-net:
+    driver: bridge
