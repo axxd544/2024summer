@@ -1,5 +1,5 @@
 # 使用 OpenJDK 21 作为基础镜像
-FROM openjdk:21
+FROM openjdk:17
 WORKDIR /app
 # 复制打包好的JAR文件
 COPY target/*.jar /app/music-server.jar
