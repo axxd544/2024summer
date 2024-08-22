@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: music-manage-deployment
+  labels:
+    app: music-manage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: music-manage
+  template:
+    metadata:
+      labels:
+        app: music-manage
+    spec:
+      containers:
+        - name: music-manage
+          image: musicweb-music-manage:latest
+          ports:
+            - containerPort: 81

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: music-client-deployment
+  labels:
+    app: music-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: music-client
+  template:
+    metadata:
+      labels:
+        app: music-client
+    spec:
+      containers:
+        - name: music-client
+          image: musicweb-music-client:latest
+          ports:
+            - containerPort: 80
