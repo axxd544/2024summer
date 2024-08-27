@@ -1,0 +1,7 @@
+FROM mysql:8.0
+# 设置数据库的初始化配置
+ENV MYSQL_ROOT_PASSWORD=123456
+ENV MYSQL_DATABASE=tp_music
+# 复制初始化SQL脚本（如果有）
+COPY tp_music.sql /docker-entrypoint-initdb.d/
+EXPOSE 3306

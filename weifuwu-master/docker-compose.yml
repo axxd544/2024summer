@@ -1,0 +1,77 @@
+version: '3.9'
+
+services:
+  mysql:
+    build: ./sql
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    ports:
+      - "3036:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - springboot-network
+
+  eureka-server:
+    build: ./eurekaserver
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - springboot-network
+
+  consumer-service:
+    build: ./consumer-service
+    container_name: consumer-service
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql_db:3306/consumer-service
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=123456
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
+    depends_on:
+      - mysql
+      - eureka-server
+    networks:
+      - springboot-network
+
+  content-service:
+    build: ./content-service
+    container_name: content-service
+    ports:
+      - "8082:8082"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql_db:3306/content-service
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=123456
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
+    depends_on:
+      - mysql
+      - eureka-server
+    networks:
+      - springboot-network
+
+  social-service:
+    build: ./social-service
+    container_name: social-service
+    ports:
+      - "8083:8083"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql_db:3306/social-service
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=123456
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
+    depends_on:
+      - mysql
+      - eureka-server
+    networks:
+      - springboot-network
+
+volumes:
+  db_data:
+
+networks:
+  springboot-network:
+    driver: bridge

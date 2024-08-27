@@ -1,0 +1,11 @@
+2024-08-25 00:00:39 INFO [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver]: Resolving eureka endpoints via configuration
+2024-08-25 00:05:39 INFO [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver]: Resolving eureka endpoints via configuration
+2024-08-25 00:10:39 INFO [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver]: Resolving eureka endpoints via configuration
+2024-08-25 00:15:39 INFO [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver]: Resolving eureka endpoints via configuration
+2024-08-25 00:20:39 INFO [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver]: Resolving eureka endpoints via configuration
+2024-08-25 00:25:39 INFO [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver]: Resolving eureka endpoints via configuration
+2024-08-25 00:30:39 INFO [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver]: Resolving eureka endpoints via configuration
+2024-08-25 00:35:39 INFO [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver]: Resolving eureka endpoints via configuration
+2024-08-25 00:40:39 INFO [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver]: Resolving eureka endpoints via configuration
+2024-08-25 11:21:14 WARN [com.zaxxer.hikari.pool.HikariPool]: HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10h40m28s229ms400µs400ns).
+2024-08-25 11:25:39 INFO [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver]: Resolving eureka endpoints via configuration

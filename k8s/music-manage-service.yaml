@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: music-manage-service
+spec:
+  selector:
+    app: music-manage
+  ports:
+    - protocol: TCP
+      port: 81
+      targetPort: 81
+  type: ClusterIP

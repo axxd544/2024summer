@@ -1,0 +1,7 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
